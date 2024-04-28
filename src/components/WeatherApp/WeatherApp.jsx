@@ -13,20 +13,20 @@ import humidity_icon from "../Assets/humidity.png";
 export default function WeatherApp() {
   let api_key = "3512477515ba15b05eddaafcb9f76d39";
 
-  function searchWeather() {
+  const searchWeather = async () => {
     const inputValue = document.getElementsByClassName("cityInput");
     if (inputValue[0].value === 0) {
       return 0;
     }
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue[0].value}&units=Metric&appid=3512477515ba15b05eddaafcb9f76d39`;
-  }
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue[0].value}&units=Metric&appid=${api_key}`;
+  };
 
   return (
     <div className="container">
       <div className="top-bar">
         <input type="text" className="cityInput" placeholder="Search" />
-        <div className="search-icon" onClick={searchWeather}>
+        <div className="search-icon" onClick={() => searchWeather()}>
           <img src={search_icon} alt="search" />
         </div>
       </div>
