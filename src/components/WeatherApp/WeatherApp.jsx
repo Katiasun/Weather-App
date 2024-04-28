@@ -19,6 +19,31 @@ export default function WeatherApp() {
           <img src={search_icon} alt="search" />
         </div>
       </div>
+
+      <div className="weather-image">
+        <img src={cloud_icon} alt="cloud" />
+      </div>
+
+      <div className="weather-temp">24</div>
+
+      <div className="weather-location">London</div>
+      <div className="data-container">
+        <div className="element">
+          <img className="icon" src="" slt="#" />
+          <div className="data">
+            <div className="humidity-percent">64%</div>
+            <div className="text">Humidity</div>
+          </div>
+        </div>
+
+        <div className="element">
+          <img className="icon" src="" slt="#" />
+          <div className="data">
+            <div className="humidity-percent">18 km/h</div>
+            <div className="text">Wind speed</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
