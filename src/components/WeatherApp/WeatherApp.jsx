@@ -20,6 +20,13 @@ export default function WeatherApp() {
     }
 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue[0].value}&units=Metric&appid=${api_key}`;
+
+    let response = await fetch(url);
+    let data = await response.json();
+    const humidity = document.getElementsByClassName("humidity-percent");
+    const wind = document.getElementsByClassName("wind-rate");
+    const temperature = document.getElementsByClassName("weather-temp");
+    const location = document.getElementsByClassName("weather-location");
   };
 
   return (
@@ -50,7 +57,7 @@ export default function WeatherApp() {
         <div className="element">
           <img className="icon" src={wind_icon} slt="#" />
           <div className="data">
-            <div className="humidity-percent">18 km/h</div>
+            <div className="wind-rate">18 km/h</div>
             <div className="text">Wind speed</div>
           </div>
         </div>
