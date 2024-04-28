@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WeatherApp.css";
 
 import search_icon from "../Assets/search.png";
@@ -12,6 +12,7 @@ import humidity_icon from "../Assets/humidity.png";
 
 export default function WeatherApp() {
   let api_key = "3512477515ba15b05eddaafcb9f76d39";
+  const [weatherIcon, setWeatherIcon] = useState(cloud_icon);
 
   const searchWeather = async () => {
     const inputValue = document.getElementsByClassName("cityInput");
@@ -29,9 +30,9 @@ export default function WeatherApp() {
     const temperature = document.getElementsByClassName("weather-temp");
     const location = document.getElementsByClassName("weather-location");
 
-    humidity[0].innerHTML = data.main.humidity;
-    wind[0].innerHTML = data.wind.speed;
-    temperature[0].innerHTML = data.main.temp;
+    humidity[0].innerHTML = data.main.humidity + "&#37;";
+    wind[0].innerHTML = data.wind.speed + "km/h";
+    temperature[0].innerHTML = data.main.temp + "\u00B0C";
     location[0].innerHTML = data.name;
   };
 
