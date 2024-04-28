@@ -11,6 +11,7 @@ import wind_icon from "../Assets/wind.png";
 import humidity_icon from "../Assets/humidity.png";
 
 export default function WeatherApp() {
+  let api_key = "3512477515ba15b05eddaafcb9f76d39";
   return (
     <div className="container">
       <div className="top-bar">
