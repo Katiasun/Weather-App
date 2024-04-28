@@ -29,7 +29,7 @@ export default function WeatherApp() {
       <div className="weather-location">London</div>
       <div className="data-container">
         <div className="element">
-          <img className="icon" src="" slt="#" />
+          <img className="icon" src={humidity_icon} slt="#" />
           <div className="data">
             <div className="humidity-percent">64%</div>
             <div className="text">Humidity</div>
@@ -37,7 +37,7 @@ export default function WeatherApp() {
         </div>
 
         <div className="element">
-          <img className="icon" src="" slt="#" />
+          <img className="icon" src={wind_icon} slt="#" />
           <div className="data">
             <div className="humidity-percent">18 km/h</div>
             <div className="text">Wind speed</div>
