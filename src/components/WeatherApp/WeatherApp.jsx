@@ -12,6 +12,9 @@ import humidity_icon from "../Assets/humidity.png";
 
 export default function WeatherApp() {
   let api_key = "3512477515ba15b05eddaafcb9f76d39";
+  const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+  const [errorMsg, setErrorMsg] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(cloud_icon);
 
   const searchWeather = async () => {
@@ -31,9 +34,27 @@ export default function WeatherApp() {
     const location = document.getElementsByClassName("weather-location");
 
     humidity[0].innerHTML = data.main.humidity + "&#37;";
-    wind[0].innerHTML = data.wind.speed + "km/h";
-    temperature[0].innerHTML = data.main.temp + "\u00B0C";
+    wind[0].innerHTML = Math.floor(data.wind.speed) + "km/h";
+    temperature[0].innerHTML = Math.floor(data.main.temp) + "\u00B0C";
     location[0].innerHTML = data.name;
+
+    if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
+      setWeatherIcon(clear_icon);
+    } else if (data.weather[0].icon === "02d" || data.weather[0].icon === "02n") {
+      setWeatherIcon(cloud_icon);
+    } else if (data.weather[0].icon === "03d" || data.weather[0].icon === "03n") {
+      setWeatherIcon(drizzle_icon);
+    } else if (data.weather[0].icon === "04d" || data.weather[0].icon === "04n") {
+      setWeatherIcon(drizzle_icon);
+    } else if (data.weather[0].icon === "09d" || data.weather[0].icon === "09n") {
+      setWeatherIcon(rain_icon);
+    } else if (data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
+      setWeatherIcon(rain_icon);
+    } else if (data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
+      setWeatherIcon(snow_icon);
+    } else {
+      setWeatherIcon(clear_icon);
+    }
   };
 
   return (
