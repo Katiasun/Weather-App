@@ -3,9 +3,13 @@ import WeatherApp from "./components/WeatherApp/WeatherApp";
 import Search from "./components/NewWeatherApp/search/search";
 
 export default function App() {
+  function handleOnSearchChange(searchData) {
+    console.log(searchData);
+  }
+
   return (
     <div className="container">
-      <Search />
+      <Search onSearchChange={handleOnSearchChange} />
       {/* <WeatherApp /> */}
     </div>
   );
